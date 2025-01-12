@@ -73,8 +73,8 @@ whatever argument is passed.
 # documentation
 
 
-## supported game types
-The same as the CSV documentation for savant search -
+### supported game types
+The same as the CSV documentation for savant search
 R:regular season, PO:post season, E:exhibition, D:divisional series, W:world
 series, S:spring training, F:wild card, L:league champ series
 
