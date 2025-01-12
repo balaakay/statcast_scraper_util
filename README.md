@@ -5,61 +5,66 @@ NOTE: This is my first attempt at a publicly available project. The code is
 probably bad. It works for me so please contribute or add issues if something
 doesn't work.
 
+NOTE: This has only been developed and tested on Linux (ubuntu). Please let me
+know if you get this working on MacOS or Windows(ew).
+
 # usage
 
 set_database_url(String) - used to connect to a specific postgreSQL DB instance.
-Example - 
 
     set_database_url("jdbc:postgresql://localhost:3000/database");
 
+
 set_database_user(String) - user connecting to database.
-Ex. - 
 
     set_database_user("user");
 
+
 set_database_password(String) - password associated with the user set in
 set_database_user(String)
-Ex. - 
     
     set_database_password("password");
 
-AFTER all those functions have been called:
+
+AFTER all those functions have been called you can now call the main function
+of the package:
 
 run_statcast_import_processing(int) - main function for the utility. Pass in
 the year you want to create a table of.
-Ex. - 
     
     run_statcast_import_processing(2024);
+
+
+
 
 
 Helper functions:
 
 delete_temp_files(boolean) - deletes all CSV's created by data import process
 if set to true. Defaults to false.
-Ex. - 
 
     delete_temp_files(true);
 
 
+
 set_new_table_needed(boolean) - if set to true, deletes the old base_statcast
 table so a new one is created during the process on its next run.
-Ex. - 
 
     set_new_table_needed(true);
+
 
 
 set_search_path(boolean) - Defaults to true. If true, will take the database
 user's search_path in postgres and change it to savant_data so the user doesn't
 have to enter "...from savant_data.base_statcast..." every query.
-Ex. - 
 
     set_search_path(true);
+
 
 
 rename_base_statcast(String) - MUST BE CALLED AFTER
 'run_statcast_import_processing()'. can rename the base_statcast table to
 whatever argument is passed.
-Ex. - 
 
     rename_base_statcast("new_table");
 
@@ -67,10 +72,9 @@ Ex. -
 
 # documentation
 
-NOTE: This has only been developed and tested on Linux (ubuntu). Please let me
-know if you get this working on MacOS or Windows(ew).
 
-supported game types are the same as the CSV documentation for savant search -
+## supported game types
+The same as the CSV documentation for savant search -
 R:regular season, PO:post season, E:exhibition, D:divisional series, W:world
 series, S:spring training, F:wild card, L:league champ series
 
